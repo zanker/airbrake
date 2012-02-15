@@ -340,8 +340,10 @@ module Airbrake
       end
     end
 
+    # Switching to FQDN for more insightful reporting
     def local_hostname
-      Socket.gethostname
+      # Socket.gethostname
+      Socket.gethostbyname(Socket.gethostname).first
     end
 
   end
